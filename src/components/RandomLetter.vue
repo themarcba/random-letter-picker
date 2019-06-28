@@ -47,7 +47,7 @@ export default {
         return {
             letterPool: localStorage.letterPool
                 ? JSON.parse(localStorage.letterPool)
-                : this.alphabeth(),
+                : this.alphabet(),
 
             currentLetter: localStorage.currentLetter || "?",
 
@@ -79,15 +79,15 @@ export default {
                 this.letterPool = this.letterPool.filter(
                     letter => letter != pick
                 );
-                this.writeLocalStorage();
                 this.currentLetter = pick.toUpperCase();
+                this.writeLocalStorage();
             });
         },
-        alphabeth() {
+        alphabet() {
             return "abcdefghijklmnopqrstuvwxyz".split("");
         },
         newGame() {
-            this.letterPool = this.alphabeth();
+            this.letterPool = this.alphabet();
             this.currentLetter = "?";
             this.writeLocalStorage();
         },
@@ -102,7 +102,7 @@ export default {
     },
     computed: {
         usedLetters() {
-            return this.alphabeth().filter(
+            return this.alphabet().filter(
                 letter => !this.letterPool.includes(letter)
             );
         }
