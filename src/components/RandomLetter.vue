@@ -17,13 +17,19 @@
             <i class="fas fa-dice"></i>
         </div>
         <br>
-        <div v-if="!countdown.active" class="button secondary" @click="newGame">
+        <div v-if="!countdown.active" class="button secondary" @click="restartOpen = !restartOpen">
             Restart
             <i class="fa fa-sync-alt"></i>
         </div>
-        <div v-else class="button secondary disabled" @click="newGame">
+        <div v-else class="button secondary disabled">
             Restart
             <i class="fa fa-sync-alt"></i>
+        </div>
+
+        <div v-show="restartOpen">
+            Sure?<br>
+            <div class="button small danger" @click="newGame">Yes, restart</div>
+            <div class="button small secondary" @click="restartOpen = !restartOpen">Cancel</div>
         </div>
 
         <div class="used-letters">
@@ -50,7 +56,7 @@ export default {
                 : this.alphabet(),
 
             currentLetter: localStorage.currentLetter || "?",
-
+            restartOpen: false,
             // TODO: Put the logic of the countdown in a module
             countdown: {
                 count: 0,
@@ -87,6 +93,7 @@ export default {
             return "abcdefghijklmnopqrstuvwxyz".split("");
         },
         newGame() {
+            this.restartOpen = false;
             this.letterPool = this.alphabet();
             this.currentLetter = "?";
             this.writeLocalStorage();
@@ -127,6 +134,10 @@ export default {
     font-weight: bold;
 }
 
+.button.danger {
+    background: #e74c3c;
+}
+
 .button.disabled {
     background: #bdc3c7;
     opacity: 0.5;
@@ -135,6 +146,13 @@ export default {
 
 .button.big {
     font-size: 200%;
+}
+
+.button.small {
+    font-size: 80%;
+    padding: 4px 10px;
+    margin: 2px;
+    color: #fff;
 }
 
 .button.secondary {
@@ -166,7 +184,7 @@ export default {
     color: transparent;
 }
 
-.placeholder .small {
+.small {
     color: #999;
     font-size: 0.9em;
     line-height: normal;
