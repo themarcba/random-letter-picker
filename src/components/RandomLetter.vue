@@ -4,14 +4,39 @@
             <span v-if="!countdown.active">{{ currentLetter }}</span>
             <span v-else>{{ countdown.count }}</span>
         </div>
-        <div v-if="letterPool.length > 0 && !countdown.active" class="button big" @click="pickLetter">Random letter <i class="fas fa-dice"></i></div>
-        <div v-else class="button big disabled" @click="pickLetter">Random letter <i class="fas fa-dice"></i></div>
+        <div
+            v-if="letterPool.length > 0 && !countdown.active"
+            class="button big"
+            @click="pickLetter"
+        >
+            Random letter
+            <i class="fas fa-dice"></i>
+        </div>
+        <div v-else class="button big disabled" @click="pickLetter">
+            Random letter
+            <i class="fas fa-dice"></i>
+        </div>
         <br>
-        <div v-if="!countdown.active" class="button secondary" @click="newGame">Restart <i class="fa fa-sync-alt"></i></div>
-        <div v-else class="button secondary disabled" @click="newGame">Restart <i class="fa fa-sync-alt"></i></div>
+        <div v-if="!countdown.active" class="button secondary" @click="newGame">
+            Restart
+            <i class="fa fa-sync-alt"></i>
+        </div>
+        <div v-else class="button secondary disabled" @click="newGame">
+            Restart
+            <i class="fa fa-sync-alt"></i>
+        </div>
 
         <div class="used-letters">
-            <div class="used-letter" v-for="letter in usedLetters" :key="letter" @click="returnToPool(letter)">{{letter}}</div>
+            <div v-if="usedLetters.length === 0" class="placeholder">
+                <div class="used-letter"></div>
+                <div class="small">Used letters will be displayed here</div>
+            </div>
+            <div
+                class="used-letter"
+                v-for="letter in usedLetters"
+                :key="letter"
+                @click="returnToPool(letter)"
+            >{{letter}}</div>
         </div>
     </div>
 </template>
@@ -71,8 +96,8 @@ export default {
             localStorage.currentLetter = this.currentLetter;
         },
         returnToPool(letter) {
-            this.letterPool.push(letter)
-            this.writeLocalStorage()
+            this.letterPool.push(letter);
+            this.writeLocalStorage();
         }
     },
     computed: {
@@ -130,6 +155,21 @@ export default {
     display: inline;
     text-transform: uppercase;
     cursor: pointer;
+}
+
+.placeholder .used-letter:before {
+    content: "?";
+}
+.placeholder .used-letter {
+    background: transparent;
+    border: dashed 3px #ccc;
+    color: transparent;
+}
+
+.placeholder .small {
+    color: #999;
+    font-size: 0.9em;
+    line-height: normal;
 }
 
 @media only screen and (min-device-width: 900px) {
