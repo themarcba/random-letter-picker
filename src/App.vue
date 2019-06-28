@@ -1,14 +1,6 @@
 <template>
     <div id="app">
         <RandomLetter></RandomLetter>
-
-        <div class="center">
-            <a href="https://github.com/themarcba/random-letter-picker#why">
-                <i class="far fa-info-circle"></i>
-                Find out what this app is used for
-            </a>
-        </div>
-
         <Footer></Footer>
     </div>
 </template>

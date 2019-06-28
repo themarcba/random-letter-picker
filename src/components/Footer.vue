@@ -3,10 +3,14 @@
         Made with
         <i class="fas fa-heart"></i> by
         <a href="https://marc.dev">Marc Backes</a>
-        <br>
-        <a class="gh-icon" href="https://github.com/themarcba/random-letter-picker">
-            <i class="fab fa-github"></i>
-        </a>
+        <div class="footer-icons">
+            <a class="info-icon" href="https://github.com/themarcba/random-letter-picker#why">
+                <i class="far fa-info-circle"></i>
+            </a>
+            <a class="gh-icon" href="https://github.com/themarcba/random-letter-picker">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
     </div>
 </template>
 
@@ -23,12 +27,15 @@ export default {
     bottom: 0;
     padding: 0;
 }
-.gh-icon {
+.footer-icons {
     font-size: 2em;
     position: fixed;
     right: 10px;
-    width: 41px;
-    bottom: 10px;
+    top: 10px;
+}
+
+.footer-icons a {
+    margin: 5px;
 }
 .fa-heart {
     color: tomato;
