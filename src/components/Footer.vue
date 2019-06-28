@@ -2,6 +2,8 @@
     <div class="footer">
         Made with ❤️by
         <a href="https://marc.dev">Marc Backes</a>
+        <br />
+        <a href="https://github.com/themarcba/random-letter-picker">👉 Download source code 👈</a>
     </div>
 </template>
 
