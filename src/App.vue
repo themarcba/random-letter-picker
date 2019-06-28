@@ -3,9 +3,10 @@
         <RandomLetter></RandomLetter>
 
         <div class="center">
-            <a
-                href="https://github.com/themarcba/random-letter-picker#why"
-            >Find out what this app is used for</a>
+            <a href="https://github.com/themarcba/random-letter-picker#why">
+                <i class="far fa-info-circle"></i>
+                Find out what this app is used for
+            </a>
         </div>
 
         <Footer></Footer>
@@ -32,7 +33,9 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
+}
+body {
+    margin: 0;
 }
 div.centered {
     text-align: center;
@@ -42,10 +45,10 @@ a {
     color: #2ecc71;
     text-decoration: none;
     font-weight: bold;
-    -webkit-transition: color .3s ease-out;
-    -moz-transition: color .3s ease-out;
-    -o-transition: color .3s ease-out;
-    transition: color .3s ease-out;
+    -webkit-transition: color 0.3s ease-out;
+    -moz-transition: color 0.3s ease-out;
+    -o-transition: color 0.3s ease-out;
+    transition: color 0.3s ease-out;
 }
 
 a:hover {
