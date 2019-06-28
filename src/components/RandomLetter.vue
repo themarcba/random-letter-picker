@@ -4,10 +4,11 @@
             <span v-if="!countdown.active">{{ currentLetter }}</span>
             <span v-else>{{ countdown.count }}</span>
         </div>
-        <div v-if="letterPool.length > 0 && !countdown.active" class="button big" @click="pickLetter">Pick random letter <i class="fas fa-dice"></i></div>
-        <div v-else class="button big disabled" @click="pickLetter">Pick random letter <i class="fas fa-dice"></i></div>
+        <div v-if="letterPool.length > 0 && !countdown.active" class="button big" @click="pickLetter">Random letter <i class="fas fa-dice"></i></div>
+        <div v-else class="button big disabled" @click="pickLetter">Random letter <i class="fas fa-dice"></i></div>
         <br>
-        <div class="button secondary" @click="newGame">Restart <i class="fa fa-sync-alt"></i></div>
+        <div v-if="!countdown.active" class="button secondary" @click="newGame">Restart <i class="fa fa-sync-alt"></i></div>
+        <div v-else class="button secondary disabled" @click="newGame">Restart <i class="fa fa-sync-alt"></i></div>
 
         <div class="used-letters">
             <div class="used-letter" v-for="letter in usedLetters" :key="letter" @click="returnToPool(letter)">{{letter}}</div>
@@ -23,7 +24,7 @@ export default {
                 ? JSON.parse(localStorage.letterPool)
                 : this.alphabeth(),
 
-            currentLetter: localStorage.currentLetter || "-",
+            currentLetter: localStorage.currentLetter || "?",
 
             // TODO: Put the logic of the countdown in a module
             countdown: {
@@ -62,7 +63,7 @@ export default {
         },
         newGame() {
             this.letterPool = this.alphabeth();
-            this.currentLetter = "-";
+            this.currentLetter = "?";
             this.writeLocalStorage();
         },
         writeLocalStorage() {
