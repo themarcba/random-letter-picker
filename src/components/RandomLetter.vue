@@ -33,7 +33,6 @@ export default {
                     this.count = 5;
                     this.active = true;
                     const interval = setInterval(() => {
-                        console.log(this.count);
                         this.count -= 1;
                         if (this.count == 0) {
                             this.active = false;

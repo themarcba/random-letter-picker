@@ -1,27 +1,54 @@
 <template>
-  <div id="app">
-    <RandomLetter></RandomLetter>
-  </div>
+    <div id="app">
+        <RandomLetter></RandomLetter>
+
+        <div class="center">
+            <a
+                href="https://github.com/themarcba/random-letter-picker#why"
+            >Find out what this app is used for</a>
+        </div>
+
+        <Footer></Footer>
+    </div>
 </template>
 
 <script>
-import RandomLetter from './components/RandomLetter.vue'
+import RandomLetter from "./components/RandomLetter.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
-  name: 'app',
-  components: {
-    RandomLetter
-  }
-}
+    name: "app",
+    components: {
+        RandomLetter,
+        Footer
+    }
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+}
+div.centered {
+    text-align: center;
+}
+
+a {
+    color: #2ecc71;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-transition: color .3s ease-out;
+    -moz-transition: color .3s ease-out;
+    -o-transition: color .3s ease-out;
+    transition: color .3s ease-out;
+}
+
+a:hover {
+    color: #2c3e50;
 }
 </style>
