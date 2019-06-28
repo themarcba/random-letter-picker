@@ -27,7 +27,7 @@
         </div>
 
         <div v-show="restartOpen">
-            Sure?<br>
+            <span class="danger-text">Are you sure you want to restart?</span><br>
             <div class="button small danger" @click="newGame">Yes, restart</div>
             <div class="button small secondary" @click="restartOpen = !restartOpen">Cancel</div>
         </div>
@@ -123,6 +123,10 @@ export default {
     font-weight: bold;
 }
 
+.danger-text {
+    color: #e74c3c;
+    font-weight: bold;
+}
 .button {
     background: #2ecc71;
     color: #fff;
